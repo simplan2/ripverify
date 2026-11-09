@@ -1,0 +1,343 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  Add Resources Here  -->
+    <Style Selector="TextBlock.muted">
+        <Setter Property="Foreground" Value="{StaticResource RvTextMutedBrush}" />
+    </Style>
+
+    <Style Selector="Border.card">
+        <Setter Property="Background" Value="{StaticResource RvCardBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="14" />
+    </Style>
+
+    <Style Selector="Border.batchCard">
+        <Setter Property="Background" Value="{StaticResource RvCardBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="16" />
+    </Style>
+
+    <Style Selector="Border.queueWorkspace">
+        <Setter Property="Background" Value="{StaticResource RvCardBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="16" />
+        <Setter Property="ClipToBounds" Value="True" />
+    </Style>
+
+    <Style Selector="Border.queueRow">
+        <Setter Property="Background" Value="#181825" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Padding" Value="14,12" />
+    </Style>
+
+    <Style Selector="Border.dropzone">
+        <Setter Property="Background" Value="#1A1A2A" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="Border.dropzone:pointerover">
+        <Setter Property="Background" Value="#202033" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+    </Style>
+
+    <Style Selector="Button">
+        <Setter Property="Background" Value="{StaticResource RvControlBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource RvTextPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="9" />
+        <Setter Property="Padding" Value="15,9" />
+        <Setter Property="MinHeight" Value="38" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="Button /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource RvControlBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+    </Style>
+    <Style Selector="Button:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource RvControlHoverBrush}" />
+        <Setter Property="BorderBrush" Value="#585B70" />
+    </Style>
+    <Style Selector="Button:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource RvControlPressedBrush}" />
+    </Style>
+    <Style Selector="Button:disabled /template/ ContentPresenter">
+        <Setter Property="Background" Value="#1E1E2E" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+    </Style>
+
+    <Style Selector="Button.accent">
+        <Setter Property="Foreground" Value="{StaticResource RvAccentTextBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+    </Style>
+    <Style Selector="Button.accent /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource RvAccentBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource RvAccentTextBrush}" />
+    </Style>
+    <Style Selector="Button.accent:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource RvAccentHoverBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentHoverBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource RvAccentTextBrush}" />
+    </Style>
+    <Style Selector="Button.accent:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource RvAccentPressedBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentPressedBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource RvAccentTextBrush}" />
+    </Style>
+    <Style Selector="Button.accent:disabled">
+        <Setter Property="Foreground" Value="{StaticResource RvAccentDisabledTextBrush}" />
+    </Style>
+    <Style Selector="Button.accent:disabled /template/ ContentPresenter">
+        <Setter Property="Background" Value="#2A2A3C" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource RvAccentDisabledTextBrush}" />
+    </Style>
+
+    <Style Selector="Button.nav">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="9" />
+        <Setter Property="Padding" Value="12,8" />
+        <Setter Property="MinHeight" Value="36" />
+        <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+    <Style Selector="Button.nav /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+    </Style>
+    <Style Selector="Button.nav:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#242438" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+    </Style>
+    <Style Selector="Button.nav:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="#2B2B40" />
+    </Style>
+
+    <Style Selector="Button.queueAction">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="Foreground" Value="{StaticResource RvTextMutedBrush}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+    <Style Selector="Button.queueAction /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+    </Style>
+    <Style Selector="Button.queueAction:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#242438" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+    </Style>
+
+    <Style Selector="Button.iconDanger">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Foreground" Value="{StaticResource RvDangerBrush}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="MinHeight" Value="32" />
+    </Style>
+    <Style Selector="Button.iconDanger /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+    </Style>
+    <Style Selector="Button.iconDanger:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#3A2028" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvDangerBrush}" />
+    </Style>
+    <Style Selector="Button.iconDanger:disabled /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+    </Style>
+
+    <Style Selector="Button.secondary /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+    </Style>
+    <Style Selector="Button.secondary:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#1E1E2E" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentHoverBrush}" />
+    </Style>
+    <Style Selector="Button.secondary:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="#252538" />
+    </Style>
+
+    <Style Selector="Button.ghost /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+    </Style>
+    <Style Selector="Button.ghost:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource RvControlBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+    </Style>
+    <Style Selector="Button.ghost:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource RvControlHoverBrush}" />
+    </Style>
+
+    <Style Selector="ListBoxItem">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0,0,0,6" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="ListBoxItem /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="ListBoxItem:pointerover Border.batchCard">
+        <Setter Property="Background" Value="{StaticResource RvCardHoverBrush}" />
+    </Style>
+    <Style Selector="ListBoxItem:selected Border.batchCard">
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+        <Setter Property="Background" Value="#242438" />
+    </Style>
+    <Style Selector="ListBoxItem:pointerover Border.queueRow">
+        <Setter Property="Background" Value="{StaticResource RvCardHoverBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+    </Style>
+    <Style Selector="ListBoxItem:selected Border.queueRow">
+        <Setter Property="Background" Value="#242438" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+    </Style>
+
+    <Style Selector="Button:focus-visible">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentFocusBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+    <Style Selector="Button:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentFocusBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+    <Style Selector="TextBox:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentFocusBrush}" />
+    </Style>
+    <Style Selector="ComboBox:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentFocusBrush}" />
+    </Style>
+    <Style Selector="CheckBox:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentFocusBrush}" />
+    </Style>
+    <Style Selector="ListBoxItem:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentFocusBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+    </Style>
+
+  <!-- ========================================== -->
+  <!--  ESTILOS PARA TEXTBOX  -->
+  <!-- ========================================== -->
+    <Style Selector="TextBox">
+        <Setter Property="Background" Value="{StaticResource RvInputBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource RvTextPrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="9" />
+        <Setter Property="Padding" Value="12,9" />
+        <Setter Property="MinHeight" Value="38" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <!--  Estado Alternativo / Watermark (Texto de marcador de posición)  -->
+    <Style Selector="TextBox /template/ TextBlock#PART_Watermark">
+        <Setter Property="Foreground" Value="{StaticResource RvTextMutedBrush}" />
+    </Style>
+
+    <!--  Estado: Pasar el mouse por encima (Pointerover)  -->
+    <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="#151522" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+    </Style>
+
+    <!--  Estado: Enfocado -->
+    <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{StaticResource RvInputBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <!--  Estado: Solo Lectura  -->
+    <Style Selector="TextBox[IsReadOnly=True]">
+        <Setter Property="Background" Value="{StaticResource RvSurfaceBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource RvTextMutedBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+    </Style>
+    <Style Selector="TextBox[IsReadOnly=True]:pointerover /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{StaticResource RvSurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+    </Style>
+
+    <Style Selector="TextBlock.fieldLabel">
+        <Setter Property="Foreground" Value="{StaticResource RvFieldLabelBrush}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+
+  <!-- ========================================== -->
+  <!--  ESTILOS PARA COMBOBOX (Catppuccin Mocha)  -->
+  <!-- ========================================== -->
+  <Style Selector="ComboBox">
+    <Setter Property="Background" Value="{StaticResource RvInputBrush}" />
+    <!-- Crust -->
+    <Setter Property="Foreground" Value="{StaticResource RvTextPrimaryBrush}" />
+    <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="9" />
+    <Setter Property="Padding" Value="12,0" />
+    <Setter Property="MinHeight" Value="38" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+  </Style>
+  <Style Selector="ComboBox:pointerover /template/ Border#VisualLayer">
+    <Setter Property="Background" Value="#151522" />
+    <Setter Property="BorderBrush" Value="{StaticResource RvBorderStrongBrush}" />
+  </Style>
+  <Style Selector="ComboBox:focus /template/ Border#VisualLayer">
+    <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+  </Style>
+
+  <!-- ========================================== -->
+  <!-- ESTILOS PARA NUMERICUPDOWN                 -->
+  <!-- ========================================== -->
+  <Style Selector="NumericUpDown">
+    <Setter Property="Background" Value="{StaticResource RvInputBrush}" />
+    <Setter Property="Foreground" Value="{StaticResource RvTextPrimaryBrush}" />
+    <Setter Property="BorderBrush" Value="{StaticResource RvBorderBrush}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="9" />
+    <Setter Property="MinHeight" Value="38" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+  </Style>
+  <Style Selector="NumericUpDown:buttonleft">
+    <Setter Property="Background" Value="{StaticResource RvControlBrush}" />
+  </Style>
+  <!-- Sincronización del TextBox interno del NumericUpDown -->
+  <Style Selector="NumericUpDown /template/ TextBox#PART_TextBox">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="MinHeight" Value="36" />
+    <Setter Property="Padding" Value="12,0" />
+  </Style>
+  <Style Selector="NumericUpDown:focus-within">
+    <Setter Property="BorderBrush" Value="{StaticResource RvAccentBrush}" />
+  </Style>
+
+</Styles>

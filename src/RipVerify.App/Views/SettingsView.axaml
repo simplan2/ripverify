@@ -1,0 +1,137 @@
+<Window
+    x:Class="RipVerify.App.Views.SettingsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:RipVerify.App.ViewModels"
+    Title="{Binding Title}"
+    Width="600"
+    Height="570"
+    x:DataType="vm:SettingsViewModel"    
+    Background="{StaticResource RvBgBrush}">
+
+  <Grid RowDefinitions="*,Auto">
+    <ScrollViewer>
+      <Border Margin="20" Classes="card">
+        <StackPanel Margin="20" Spacing="20">
+          <TextBlock
+              FontSize="20"
+              FontWeight="Bold"
+              Foreground="#89B4FA"
+              Text="{Binding Title}" />
+
+          <!-- Ruta del CUETools.ARCUE.exe -->
+          <StackPanel Spacing="8">
+            <TextBlock Classes="fieldLabel" Text="{Binding CueToolsPathLabel}" />
+            <Grid ColumnDefinitions="*,Auto">
+              <TextBox
+                  Grid.Column="0"
+                  Margin="0,0,8,0"
+                  VerticalAlignment="Center"
+                  FontSize="12"
+                  IsReadOnly="True"
+                  Text="{Binding CueToolsPath}"
+                  PlaceholderText="Seleccionar ejecutable de CUETools.ARCUE.exe" />
+              <Button
+                  Grid.Column="1"
+                  Height="38"
+                  Padding="12,0"
+                  Command="{Binding SetCueToolsPathCommand}">
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Spacing="8">
+                  <Path Width="14" Height="14" Margin="0,2,0,0" VerticalAlignment="Center" Stretch="Uniform" Fill="{StaticResource RvTextPrimaryBrush}" Data="M40,43H8c-3.31,0-6-2.69-6-6V11c0-3.31,2.69-6,6-6h7.86c2.02,0,3.9,1.01,5.01,2.7l1.61,2.38c.39.59,1.03.93,1.7.92h15.82c3.31,0,6,2.69,6,6v20c0,3.31-2.69,6-6,6ZM8,9c-1.1,0-2,.9-2,2v26c0,1.1.9,2,2,2h32c1.1,0,2-.9,2-2v-20c0-1.1-.9-2-2-2h-15.8c-2.05.01-3.92-.99-5.05-2.7l-1.61-2.38c-.38-.58-1.01-.92-1.68-.92h-7.86Z"/>
+                  <TextBlock VerticalAlignment="Center" FontSize="12" Text="Examinar..." />
+                </StackPanel>
+              </Button>
+            </Grid>
+          </StackPanel>
+
+          <!-- Ruta de ffmpeg -->
+          <StackPanel Spacing="8">
+            <TextBlock Classes="fieldLabel" Text="{Binding FfmpegPathLabel}" />
+            <Grid ColumnDefinitions="*,Auto">
+              <TextBox
+                  Grid.Column="0"
+                  Margin="0,0,8,0"
+                  VerticalAlignment="Center"
+                  FontSize="12"
+                  IsReadOnly="True"
+                  Text="{Binding FfmpegPath}"
+                  PlaceholderText="Seleccionar ejecutable de ffmpeg.exe" />
+              <Button
+                  Grid.Column="1"
+                  Height="38"
+                  Padding="12,0"
+                  Command="{Binding SetFfmpegPathCommand}">
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Spacing="8">
+                  <Path Width="14" Height="14" Margin="0,2,0,0" VerticalAlignment="Center" Stretch="Uniform" Fill="{StaticResource RvTextPrimaryBrush}" Data="M40,43H8c-3.31,0-6-2.69-6-6V11c0-3.31,2.69-6,6-6h7.86c2.02,0,3.9,1.01,5.01,2.7l1.61,2.38c.39.59,1.03.93,1.7.92h15.82c3.31,0,6,2.69,6,6v20c0,3.31-2.69,6-6,6ZM8,9c-1.1,0-2,.9-2,2v26c0,1.1.9,2,2,2h32c1.1,0,2-.9,2-2v-20c0-1.1-.9-2-2-2h-15.8c-2.05.01-3.92-.99-5.05-2.7l-1.61-2.38c-.38-.58-1.01-.92-1.68-.92h-7.86Z"/>
+                  <TextBlock VerticalAlignment="Center" FontSize="12" Text="Examinar..." />
+                </StackPanel>
+              </Button>
+            </Grid>
+          </StackPanel>
+
+          <!-- Drive Offset -->
+          <StackPanel Spacing="8">
+            <TextBlock Classes="fieldLabel" Text="{Binding DriveOffsetLabel}" />
+            <NumericUpDown Maximum="1000" Minimum="-1000" Value="{Binding DriveOffset}" />
+          </StackPanel>
+
+          <!-- Idioma -->
+          <StackPanel Spacing="8">
+            <TextBlock Classes="fieldLabel" Text="{Binding LanguageLabel}" />
+            <ComboBox
+                DisplayMemberBinding="{Binding DisplayName}"
+                ItemsSource="{Binding Languagaes}"
+                SelectedValue="{Binding SelectedLanguage}" />
+          </StackPanel>
+
+          <!-- Log Level -->
+          <StackPanel Spacing="8">
+            <TextBlock Classes="fieldLabel" Text="{Binding LogLevelLabel}" />
+            <ComboBox ItemsSource="{Binding LogLevels}" SelectedItem="{Binding LogLevel}" />
+          </StackPanel>
+
+          <!-- User Agent -->
+          <StackPanel Spacing="8">
+            <TextBlock Classes="fieldLabel" Text="{Binding MusicBrainzUserAgentLabel}" />
+            <TextBox Height="80" AcceptsReturn="True" Text="{Binding MusicBrainzUserAgent}" PlaceholderText="Mozilla/5.0..." />
+          </StackPanel>
+
+        </StackPanel>
+      </Border>
+    </ScrollViewer>
+
+    <!-- Barra inferior de acciones fija -->
+    <Grid Grid.Row="1" Margin="20" ColumnDefinitions="*, Auto">
+
+      <!-- Mensaje de error (Alineado a la izquierda) -->
+      <TextBlock
+          Grid.Column="0"
+          Foreground="{StaticResource RvDangerBrush}"
+          VerticalAlignment="Center"
+          IsVisible="{Binding HasValidationError}"
+          Text="{Binding ValidationError}"
+          TextWrapping="Wrap" />
+
+      <!-- Bloque de botones agrupado a la derecha -->
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  Spacing="12"
+                  HorizontalAlignment="Right">
+
+        <!-- Restablecer: Usamos la clase ghost para que se vea discreto -->
+        <Button Classes="ghost"
+                Content="Restablecer"
+                Command="{Binding ResetCommand}"
+                MinWidth="110" />
+
+        <!-- Guardar: Destaca con el color de acento (#89B4FA) -->
+        <Button Classes="accent"
+                Content="Guardar"
+                Command="{Binding SaveCommand}"
+                MinWidth="110" />
+      </StackPanel>
+    </Grid>
+
+
+  </Grid>
+</Window>

@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CueTools_NotConfigured" xml:space="preserve">
+    <value>CUETools no está configurado. Configúralo en Ajustes.</value>
+  </data>
+  <data name="CueTools_BinaryNotFound" xml:space="preserve">
+    <value>No se encuentra CUETools.Console.exe en la ruta configurada.</value>
+  </data>
+  <data name="CueTools_EmptyCue" xml:space="preserve">
+    <value>El archivo CUE no tiene pistas para verificar.</value>
+  </data>
+  <data name="CueTools_Verifying" xml:space="preserve">
+    <value>Verificando...</value>
+  </data>
+  <data name="Parser_Cancelled" xml:space="preserve">
+    <value>La verificación se ha cancelado.</value>
+  </data>
+  <data name="Parser_TimedOut" xml:space="preserve">
+    <value>La verificación ha excedido el tiempo de espera.</value>
+  </data>
+  <data name="Parser_ExitCodeNonZero" xml:space="preserve">
+    <value>CUETools terminó con código {0}.</value>
+  </data>
+  <data name="Parser_StatusNotDetected" xml:space="preserve">
+    <value>No se ha podido detectar el estado de AccurateRip.</value>
+  </data>
+  <data name="Batch_Start" xml:space="preserve">
+    <value>Iniciar verificación</value>
+  </data>
+  <data name="Batch_Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Batch_Running" xml:space="preserve">
+    <value>Procesando lote...</value>
+  </data>
+  <data name="Batch_Finished" xml:space="preserve">
+    <value>Lote finalizado</value>
+  </data>
+  <data name="Batch_Summary" xml:space="preserve">
+    <value>{0} completados, {1} fallidos, {2} cancelados</value>
+  </data>
+  <data name="Batch_ItemFailed" xml:space="preserve">
+    <value>Elemento fallido</value>
+  </data>
+  <data name="Batch_ItemCancelled" xml:space="preserve">
+    <value>Elemento cancelado</value>
+  </data>
+  <data name="Classifier_SpectrumUnavailable" xml:space="preserve">
+    <value>Análisis de espectro no disponible</value>
+  </data>
+  <data name="Classifier_RuleApplied" xml:space="preserve">
+    <value>Regla del clasificador: {0}</value>
+  </data>
+  <data name="Status_VerifiedCdRip" xml:space="preserve">
+    <value>CD Original Verificado</value>
+  </data>
+  <data name="Status_VerifiedWithWarnings" xml:space="preserve">
+    <value>Verificado con Advertencias</value>
+  </data>
+  <data name="Status_AuthenticRipWithLog" xml:space="preserve">
+    <value>Rip Auténtico con Log</value>
+  </data>
+  <data name="Status_LikelyStreaming" xml:space="preserve">
+    <value>Lossless de Streaming</value>
+  </data>
+  <data name="Status_UndeterminedLossless" xml:space="preserve">
+    <value>Lossless de Origen Desconocido</value>
+  </data>
+  <data name="Status_FakeLossless" xml:space="preserve">
+    <value>Falso Lossless (Transcode)</value>
+  </data>
+  <data name="Status_Unprocessable" xml:space="preserve">
+    <value>Error de Lectura</value>
+  </data>
+  <data name="Status_VerifiedCdRip_Description" xml:space="preserve">
+    <value>Este archivo coincide bit a bit con el CD original.</value>
+  </data>
+  <data name="Status_VerifiedWithWarnings_Description" xml:space="preserve">
+    <value>Validado por CTDB, pero AccurateRip detecta discrepancias. El archivo puede tener micro-errores.</value>
+  </data>
+  <data name="Status_AuthenticRipWithLog_Description" xml:space="preserve">
+    <value>El CRC del audio coincide con un log de EAC/dBpoweramp y se detectó una unidad física.</value>
+  </data>
+  <data name="Status_LikelyStreaming_Description" xml:space="preserve">
+    <value>El audio parece proceder de una plataforma de streaming.</value>
+  </data>
+  <data name="Status_UndeterminedLossless_Description" xml:space="preserve">
+    <value>No se pudo determinar el origen exacto del audio.</value>
+  </data>
+  <data name="Status_FakeLossless_Description" xml:space="preserve">
+    <value>El archivo se presenta como lossless, pero perdió información.</value>
+  </data>
+  <data name="Status_Unprocessable_Description" xml:space="preserve">
+    <value>No se pudo leer o analizar el archivo.</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>RipVerify</value>
+  </data>
+  <data name="CommonEnglish" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
+  <data name="CommonSpanish" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="FirstRunTitle" xml:space="preserve">
+    <value>Bienvenido a RipVerify</value>
+  </data>
+  <data name="FirstRunWelcome" xml:space="preserve">
+    <value>RipVerify verifica tus rips de audio combinando los resultados de AccurateRip de CUETools con el análisis de espectro. Vamos a configurarlo.</value>
+  </data>
+  <data name="FirstRunDependencies" xml:space="preserve">
+    <value>Dependencias</value>
+  </data>
+  <data name="FirstRunCueToolsNotFound" xml:space="preserve">
+    <value>No se ha encontrado CUETools.Console.exe. La verificación con AccurateRip requiere CUETools.</value>
+  </data>
+  <data name="FirstRunDownloadCueTools" xml:space="preserve">
+    <value>Descarga CUETools desde https://cue.tools/ y colócalo en la carpeta tools.</value>
+  </data>
+  <data name="FirstRunAcceptTerms" xml:space="preserve">
+    <value>He instalado CUETools y acepto los términos de su licencia.</value>
+  </data>
+  <data name="FirstRunContinueDegraded" xml:space="preserve">
+    <value>Continuar en modo degradado (solo análisis de espectro)</value>
+  </data>
+  <data name="FirstRunFfmpegInfo" xml:space="preserve">
+    <value>FFmpeg se utiliza para el análisis de espectro.</value>
+  </data>
+  <data name="FirstRunLanguage" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="FirstRunNext" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="FirstRunBack" xml:space="preserve">
+    <value>Atrás</value>
+  </data>
+  <data name="FirstRunFinish" xml:space="preserve">
+    <value>Finalizar</value>
+  </data>
+  <data name="Main_AddItems" xml:space="preserve">
+    <value>Añadir</value>
+  </data>
+  <data name="Batch_ClearAll" xml:space="preserve">
+    <value>Limpiar todo</value>
+  </data>
+  <data name="Batch_Remove" xml:space="preserve">
+    <value>Quitar</value>
+  </data>
+  <data name="Tooltip_ClearQueue" xml:space="preserve">
+    <value>Quitar todos los elementos de la cola</value>
+  </data>
+  <data name="Tooltip_RemoveItem" xml:space="preserve">
+    <value>Quitar de la cola; si se está procesando, cancela primero</value>
+  </data>
+  <data name="MainDragDropHint" xml:space="preserve">
+    <value>Arrastra carpetas o archivos de audio aquí</value>
+  </data>
+  <data name="MainSubtitle" xml:space="preserve">
+    <value>Verificación AccurateRip · CTDB · Espectro</value>
+  </data>
+  <data name="MainDropZoneTitle" xml:space="preserve">
+    <value>Suelta tus álbumes aquí</value>
+  </data>
+  <data name="MainDropZoneSubtitle" xml:space="preserve">
+    <value>Carpetas o archivos FLAC, WAV, APE y WV — compatible con hojas CUE</value>
+  </data>
+  <data name="MainQueueTitle" xml:space="preserve">
+    <value>Cola de verificación</value>
+  </data>
+  <data name="MainQueueEmpty" xml:space="preserve">
+    <value>Aún no hay álbumes. Añade una carpeta o suelta una arriba para empezar.</value>
+  </data>
+  <data name="MainItemsReceived" xml:space="preserve">
+    <value>{0} elementos recibidos</value>
+  </data>
+  <data name="MainOpenSettings" xml:space="preserve">
+    <value>Abrir ajustes</value>
+  </data>
+  <data name="MainDegradedMode" xml:space="preserve">
+    <value>Modo degradado: CUETools no está configurado. Solo está disponible el análisis de espectro.</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Ajustes</value>
+  </data>
+  <data name="SettingsCueToolsPath" xml:space="preserve">
+    <value>Ruta de la consola de CUETools</value>
+  </data>
+  <data name="SettingsFfmpegPath" xml:space="preserve">
+    <value>Ruta de FFmpeg</value>
+  </data>
+  <data name="SettingsDriveOffset" xml:space="preserve">
+    <value>Offset de la unidad</value>
+  </data>
+  <data name="SettingsLanguage" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="SettingsLogLevel" xml:space="preserve">
+    <value>Nivel de registro</value>
+  </data>
+  <data name="SettingsMusicBrainzUserAgent" xml:space="preserve">
+    <value>User agent de MusicBrainz</value>
+  </data>
+  <data name="SettingsInvalidUserAgent" xml:space="preserve">
+    <value>El user agent de MusicBrainz no puede contener los caracteres &lt; o &gt;.</value>
+  </data>
+  <data name="SettingsSave" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="SettingsCancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Batch_Details" xml:space="preserve">
+    <value>Detalles</value>
+  </data>
+  <data name="Batch_State_Pending" xml:space="preserve">
+    <value>Pendiente</value>
+  </data>
+  <data name="Batch_State_Scanning" xml:space="preserve">
+    <value>Escaneando</value>
+  </data>
+  <data name="Batch_State_FixingCue" xml:space="preserve">
+    <value>Corrigiendo CUE</value>
+  </data>
+  <data name="Batch_State_VerifyingCueTools" xml:space="preserve">
+    <value>Verificando con CUETools</value>
+  </data>
+  <data name="Batch_State_AnalyzingSpectrum" xml:space="preserve">
+    <value>Analizando espectro</value>
+  </data>
+  <data name="Batch_State_ReadingOriginSignals" xml:space="preserve">
+    <value>Leyendo señales de origen</value>
+  </data>
+  <data name="Batch_State_VerifyingLog" xml:space="preserve">
+    <value>Verificando CRC del log</value>
+  </data>
+  <data name="Batch_State_Classifying" xml:space="preserve">
+    <value>Clasificando</value>
+  </data>
+  <data name="Batch_State_Completed" xml:space="preserve">
+    <value>Completado</value>
+  </data>
+  <data name="Batch_State_Failed" xml:space="preserve">
+    <value>Fallido</value>
+  </data>
+  <data name="Batch_State_Cancelled" xml:space="preserve">
+    <value>Cancelado</value>
+  </data>
+  <data name="Batch_State_Cancelling" xml:space="preserve">
+    <value>Cancelando…</value>
+  </data>
+  <data name="AlbumDetail_CueToolsCard" xml:space="preserve">
+    <value>Base de Datos</value>
+  </data>
+  <data name="AlbumDetail_AccurateRipVerified" xml:space="preserve">
+    <value>AccurateRip: verificado</value>
+  </data>
+  <data name="AlbumDetail_AccurateRipNotFound" xml:space="preserve">
+    <value>No encontrado (El CD no está indexado)</value>
+  </data>
+  <data name="AlbumDetail_AccurateRipInaccurate" xml:space="preserve">
+    <value>AccurateRip: no coincide</value>
+  </data>
+  <data name="AlbumDetail_AccurateRipUnprocessable" xml:space="preserve">
+    <value>AccurateRip: no se pudo comprobar</value>
+  </data>
+  <data name="AlbumDetail_CtdbVerified" xml:space="preserve">
+    <value>CTDB: {0} de {1} pistas verificadas</value>
+  </data>
+  <data name="AlbumDetail_CtdbVerifiedShort" xml:space="preserve">
+    <value>CTDB: verificado</value>
+  </data>
+  <data name="AlbumDetail_CtdbNotFound" xml:space="preserve">
+    <value>CTDB: no encontrado</value>
+  </data>
+  <data name="AlbumDetail_CtdbInaccurate" xml:space="preserve">
+    <value>CTDB: no coincide</value>
+  </data>
+  <data name="AlbumDetail_CtdbUnprocessable" xml:space="preserve">
+    <value>CTDB: no se pudo comprobar</value>
+  </data>
+  <data name="AlbumDetail_Confidence" xml:space="preserve">
+    <value>Confianza: {0} coincidencias en la comunidad</value>
+  </data>
+  <data name="AlbumDetail_DriveOffset" xml:space="preserve">
+    <value>Ajuste de lectura: {0}</value>
+  </data>
+  <data name="AlbumDetail_CtdbParity" xml:space="preserve">
+    <value>Copia de seguridad CTDB: {0}</value>
+  </data>
+  <data name="AlbumDetail_CtdbParityAvailable" xml:space="preserve">
+    <value>disponible</value>
+  </data>
+  <data name="AlbumDetail_CtdbParityUnavailable" xml:space="preserve">
+    <value>no disponible</value>
+  </data>
+  <data name="AlbumDetail_CueOrigin" xml:space="preserve">
+    <value>Estructura del Disco (CUE): {0}</value>
+  </data>
+  <data name="AlbumDetail_CueOriginWarning" xml:space="preserve">
+    <value>⚠️ La alineación de las pistas es aproximada, la verificación en bases de datos puede no ser exacta.</value>
+  </data>
+  <data name="AlbumDetail_DbPowerampVerified" xml:space="preserve">
+    <value>Verificado por huella de dBPoweramp en el archivo</value>
+  </data>
+  <data name="AlbumDetail_ParserWarnings" xml:space="preserve">
+    <value>Advertencias del analizador</value>
+  </data>
+  <data name="CueOrigin_Original" xml:space="preserve">
+    <value>Original</value>
+  </data>
+  <data name="CueOrigin_Sanitized" xml:space="preserve">
+    <value>Saneado</value>
+  </data>
+  <data name="CueOrigin_GeneratedFromItoc" xml:space="preserve">
+    <value>Generado desde iTOC</value>
+  </data>
+  <data name="CueOrigin_GeneratedFromMetadata" xml:space="preserve">
+    <value>Generado desde metadatos</value>
+  </data>
+  <data name="CueOrigin_GeneratedFromTocLookup" xml:space="preserve">
+    <value>Generado desde búsqueda TOC</value>
+  </data>
+  <data name="Classifier_CtdbVerifiedWithArMismatch" xml:space="preserve">
+    <value>CTDB valida la copia, pero AccurateRip detecta discrepancias.</value>
+  </data>
+  <data name="Classifier_DbPowerampAccurateWithArMismatch" xml:space="preserve">
+    <value>El tag de dBPoweramp es preciso, pero una base de datos en vivo detecta discrepancias.</value>
+  </data>
+  <data name="AlbumDetail_SpectrumCard" xml:space="preserve">
+    <value>Espectro de Frecuencias</value>
+  </data>
+  <data name="Spectrum_AxisStart" xml:space="preserve">
+    <value>20 Hz</value>
+  </data>
+  <data name="Spectrum_AxisEnd" xml:space="preserve">
+    <value>22 kHz</value>
+  </data>
+  <data name="AlbumDetail_NyquistCutoff" xml:space="preserve">
+    <value>Frecuencia máxima: {0:F1} kHz (corte natural de masterización)</value>
+  </data>
+  <data name="AlbumDetail_SpectrumUnavailable" xml:space="preserve">
+    <value>No se pudo analizar el audio.</value>
+  </data>
+  <data name="AlbumDetail_NotDetected" xml:space="preserve">
+    <value>No detectado</value>
+  </data>
+  <data name="AlbumDetail_PossibleLossy" xml:space="preserve">
+    <value>Posible compresión con pérdida</value>
+  </data>
+  <data name="AlbumDetail_FakeLossless" xml:space="preserve">
+    <value>Falso Lossless (MP3):</value>
+  </data>
+  <data name="AlbumDetail_MasteringFilter" xml:space="preserve">
+    <value>Corte de filtro de masterización (no es MP3).</value>
+  </data>
+  <data name="AlbumDetail_AlbumPath" xml:space="preserve">
+    <value>Carpeta: {0}</value>
+  </data>
+  <data name="AlbumDetail_CuePath" xml:space="preserve">
+    <value>Archivo CUE: {0}</value>
+  </data>
+  <data name="AlbumDetail_WorstTrackPath" xml:space="preserve">
+    <value>Pista con menor extensión: {0}</value>
+  </data>
+  <data name="Spectrum_WorstTrack" xml:space="preserve">
+    <value>Pista con menor extensión: {0}</value>
+  </data>
+  <data name="Calibration_UnknownOriginCategory" xml:space="preserve">
+    <value>Categoría de origen desconocida: {0}</value>
+  </data>
+  <data name="Calibration_FalsePositivesDetected" xml:space="preserve">
+    <value>Calibración rechazada: {0} falsos positivos detectados</value>
+  </data>
+  <data name="AlbumDetail_OriginCard" xml:space="preserve">
+    <value>Procedencia</value>
+  </data>
+  <data name="AlbumDetail_OriginNone" xml:space="preserve">
+    <value>No se encontraron metadatos de plataformas de streaming (Qobuz, Tidal).</value>
+  </data>
+  <data name="AlbumDetail_OriginStreaming" xml:space="preserve">
+    <value>Posibles señales de streaming detectadas (confianza: {0:P0}).</value>
+  </data>
+  <data name="AlbumDetail_OriginEvidenceHigh" xml:space="preserve">
+    <value>Evidencia de streaming: Alta</value>
+  </data>
+  <data name="AlbumDetail_OriginEvidenceMedium" xml:space="preserve">
+    <value>Evidencia de streaming: Media</value>
+  </data>
+  <data name="AlbumDetail_OriginEvidenceLow" xml:space="preserve">
+    <value>Evidencia de streaming: Baja</value>
+  </data>
+  <data name="AlbumDetail_OriginMetadataNote" xml:space="preserve">
+    <value>Los metadatos pueden ser alterados; esta señal no confirma el origen por sí sola.</value>
+  </data>
+  <data name="AlbumDetail_OriginPlatformIsrc" xml:space="preserve">
+    <value>Metadatos de plataforma detectados (ISRC: {0})</value>
+  </data>
+  <data name="AlbumDetail_TracksCard" xml:space="preserve">
+    <value>Pistas</value>
+  </data>
+  <data name="AlbumDetail_TrackIncomplete" xml:space="preserve">
+    <value>Pista incompleta o corrupta</value>
+  </data>
+  <data name="AlbumDetail_ColumnNumber" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="AlbumDetail_ColumnTitle" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="AlbumDetail_ColumnDuration" xml:space="preserve">
+    <value>Duración</value>
+  </data>
+  <data name="AlbumDetail_ColumnSpectrum" xml:space="preserve">
+    <value>Espectro</value>
+  </data>
+  <data name="AlbumDetail_ColumnStatus" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="AlbumDetail_TrackSpectrum" xml:space="preserve">
+    <value>{0:F1} kHz</value>
+  </data>
+  <data name="Track_StatusOk" xml:space="preserve">
+    <value>✅ OK</value>
+  </data>
+  <data name="Track_StatusIncomplete" xml:space="preserve">
+    <value>⚠️ Incompleta</value>
+  </data>
+  <data name="Track_StatusSpectrumLow" xml:space="preserve">
+    <value>⚠️ Espectro Bajo</value>
+  </data>
+  <data name="Track_StatusUnknown" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="AlbumDetail_LogVerified" xml:space="preserve">
+    <value>Log: CRC verificado en {0} de {1} pistas</value>
+  </data>
+  <data name="AlbumDetail_LogMismatch" xml:space="preserve">
+    <value>Log: el CRC no coincide en {0} pista(s)</value>
+  </data>
+  <data name="AlbumDetail_LogNoCrc" xml:space="preserve">
+    <value>Se encontró un log, pero no se pudo comparar ningún CRC</value>
+  </data>
+  <data name="AlbumDetail_LogDrive" xml:space="preserve">
+    <value>Unidad: {0}</value>
+  </data>
+  <data name="AlbumDetail_MetadataFallback" xml:space="preserve">
+    <value>Faltan algunas etiquetas. Se usaron el nombre de la carpeta y de los archivos para completar los metadatos.</value>
+  </data>
+  <data name="AlbumDetail_MetadataMissing" xml:space="preserve">
+    <value>No se pudieron leer los metadatos del álbum. Revisa la hoja CUE o los nombres de los archivos de audio.</value>
+  </data>
+  <data name="AlbumDetail_Distributor" xml:space="preserve">
+    <value>Plataforma: {0}</value>
+  </data>
+  <data name="AlbumDetail_Diagnostics" xml:space="preserve">
+    <value>Ver detalles técnicos (Avanzado)</value>
+  </data>
+  <data name="AlbumDetail_VerifyAgain" xml:space="preserve">
+    <value>Verificar de nuevo</value>
+  </data>
+  <data name="AlbumDetail_Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="AlbumDetail_Verifying" xml:space="preserve">
+    <value>Verificando con CUETools...</value>
+  </data>
+  <data name="Report_JsonWritten" xml:space="preserve">
+    <value>Informe JSON escrito en {0}</value>
+  </data>
+  <data name="Report_MarkdownWritten" xml:space="preserve">
+    <value>Informe Markdown escrito en {0}</value>
+  </data>
+  <data name="Report_ExportMarkdown" xml:space="preserve">
+    <value>Exportar Markdown</value>
+  </data>
+  <data name="Report_ForceEnglish" xml:space="preserve">
+    <value>Forzar inglés</value>
+  </data>
+  <data name="Report_WriteFailed" xml:space="preserve">
+    <value>No se pudo escribir el informe.</value>
+  </data>
+  <data name="Report_Title" xml:space="preserve">
+    <value>Informe de RipVerify — {0} — {1}</value>
+  </data>
+  <data name="Report_VerifiedAt" xml:space="preserve">
+    <value>Verificado el</value>
+  </data>
+  <data name="Report_FinalStatus" xml:space="preserve">
+    <value>Resultado</value>
+  </data>
+  <data name="Report_CueToolsSection" xml:space="preserve">
+    <value>Verificación de la copia</value>
+  </data>
+  <data name="Report_SpectrumSection" xml:space="preserve">
+    <value>Calidad del audio</value>
+  </data>
+  <data name="Report_OriginSection" xml:space="preserve">
+    <value>Procedencia</value>
+  </data>
+  <data name="Report_LogSection" xml:space="preserve">
+    <value>Log de extracción</value>
+  </data>
+  <data name="Report_LogResult" xml:space="preserve">
+    <value>Verificación del log</value>
+  </data>
+  <data name="Report_LogDrive" xml:space="preserve">
+    <value>Unidad del log</value>
+  </data>
+  <data name="Report_LogPath" xml:space="preserve">
+    <value>Archivo de log</value>
+  </data>
+  <data name="Report_DiagnosticsSection" xml:space="preserve">
+    <value>Detalles técnicos (Avanzado)</value>
+  </data>
+  <data name="Report_WarningsSection" xml:space="preserve">
+    <value>Advertencias</value>
+  </data>
+  <data name="Report_Field" xml:space="preserve">
+    <value>Campo</value>
+  </data>
+  <data name="Report_Value" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="Report_AccurateRipStatus" xml:space="preserve">
+    <value>AccurateRip</value>
+  </data>
+  <data name="Report_CtdbStatus" xml:space="preserve">
+    <value>CTDB</value>
+  </data>
+  <data name="Report_CtdbVerified" xml:space="preserve">
+    <value>{0} de {1} pistas verificadas</value>
+  </data>
+  <data name="Report_CtdbVerifiedShort" xml:space="preserve">
+    <value>Verificado</value>
+  </data>
+  <data name="Report_CtdbNotFound" xml:space="preserve">
+    <value>No encontrado</value>
+  </data>
+  <data name="Report_CtdbInaccurate" xml:space="preserve">
+    <value>No coincide</value>
+  </data>
+  <data name="Report_CtdbUnprocessable" xml:space="preserve">
+    <value>No se pudo comprobar</value>
+  </data>
+  <data name="Report_Confidence" xml:space="preserve">
+    <value>Confianza global</value>
+  </data>
+  <data name="Report_Users" xml:space="preserve">
+    <value>{0} usuarios</value>
+  </data>
+  <data name="Report_DriveOffset" xml:space="preserve">
+    <value>Ajuste de lectura</value>
+  </data>
+  <data name="Report_CtdbParity" xml:space="preserve">
+    <value>Copia de seguridad CTDB</value>
+  </data>
+  <data name="Report_CueOrigin" xml:space="preserve">
+    <value>Estructura del Disco</value>
+  </data>
+  <data name="Report_DbPoweramp" xml:space="preserve">
+    <value>Tag dBPoweramp</value>
+  </data>
+  <data name="Report_NyquistCutoff" xml:space="preserve">
+    <value>Frecuencia máxima</value>
+  </data>
+  <data name="Report_AudioReaches" xml:space="preserve">
+    <value>{0:F1} kHz (corte natural de masterización)</value>
+  </data>
+  <data name="Report_SpectrumVerdict" xml:space="preserve">
+    <value>Falso Lossless (MP3)</value>
+  </data>
+  <data name="Report_WorstTrack" xml:space="preserve">
+    <value>Pista con menor extensión</value>
+  </data>
+  <data name="Report_OriginSummary" xml:space="preserve">
+    <value>Origen</value>
+  </data>
+  <data name="Report_Distributor" xml:space="preserve">
+    <value>Plataforma</value>
+  </data>
+  <data name="Report_None" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
+  <data name="Report_Yes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="Report_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Report_Footer" xml:space="preserve">
+    <value>Generado por RipVerify {0}</value>
+  </data>
+  <data name="Ffmpeg_Detected" xml:space="preserve">
+    <value>FFmpeg detectado en {0}</value>
+  </data>
+  <data name="Ffmpeg_NotFound" xml:space="preserve">
+    <value>No se ha encontrado FFmpeg. El análisis de espectro no estará disponible.</value>
+  </data>
+  <data name="Shortcut_Open" xml:space="preserve">
+    <value>Abrir (Ctrl+O)</value>
+  </data>
+  <data name="Shortcut_Settings" xml:space="preserve">
+    <value>Ajustes (Ctrl+,)</value>
+  </data>
+  <data name="Shortcut_Verify" xml:space="preserve">
+    <value>Verificar de nuevo (F5)</value>
+  </data>
+  <data name="Shortcut_Back" xml:space="preserve">
+    <value>Volver (Esc)</value>
+  </data>
+  <data name="Tooltip_OpenFolder" xml:space="preserve">
+    <value>Abrir carpeta o archivos (Ctrl+O)</value>
+  </data>
+  <data name="Tooltip_OpenSettings" xml:space="preserve">
+    <value>Abrir ajustes (Ctrl+,)</value>
+  </data>
+  <data name="Tooltip_StartBatch" xml:space="preserve">
+    <value>Iniciar la verificación de todos los elementos</value>
+  </data>
+  <data name="Tooltip_CancelBatch" xml:space="preserve">
+    <value>Cancelar el lote en curso</value>
+  </data>
+  <data name="Tooltip_Details" xml:space="preserve">
+    <value>Abrir los detalles del álbum</value>
+  </data>
+  <data name="Tooltip_Verify" xml:space="preserve">
+    <value>Verificar este álbum de nuevo (F5)</value>
+  </data>
+  <data name="Tooltip_Back" xml:space="preserve">
+    <value>Volver al panel principal (Esc)</value>
+  </data>
+  <data name="Tooltip_SaveSettings" xml:space="preserve">
+    <value>Guardar ajustes</value>
+  </data>
+  <data name="Tooltip_CancelSettings" xml:space="preserve">
+    <value>Descartar cambios</value>
+  </data>
+  <data name="Tooltip_ExportMarkdown" xml:space="preserve">
+    <value>Exportar un informe Markdown</value>
+  </data>
+  <data name="Tooltip_ForceEnglish" xml:space="preserve">
+    <value>Escribir el informe Markdown en inglés</value>
+  </data>
+  <data name="Tooltip_CloseDetail" xml:space="preserve">
+    <value>Cerrar detalles (Esc)</value>
+  </data>
+  <data name="Accessibility_BatchList" xml:space="preserve">
+    <value>Resultados del lote</value>
+  </data>
+  <data name="SelectExecutable" xml:space="preserve">
+    <value>Seleccionar ejecutable</value>
+  </data>
+  <data name="ExecutableFiles" xml:space="preserve">
+    <value>Archivos ejecutables</value>
+  </data>
+</root>

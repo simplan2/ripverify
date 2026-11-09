@@ -1,0 +1,379 @@
+<Window
+    x:Class="RipVerify.App.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:RipVerify.App.Controls"
+    xmlns:views="using:RipVerify.App.Views"
+    xmlns:vm="using:RipVerify.App.ViewModels"
+    Title="{Binding Title}"
+    Width="1100"
+    Height="720"
+    MinWidth="820"
+    MinHeight="600"
+    d:DesignHeight="720"
+    d:DesignWidth="1100"
+    x:DataType="vm:MainWindowViewModel"
+    Background="#11111B"
+    mc:Ignorable="d">
+    <Grid RowDefinitions="Auto,*">
+        <!--  Header  -->
+        <Border
+            Grid.Row="0"
+            Padding="24,14"
+            Background="#181825"
+            BorderBrush="#313244"
+            BorderThickness="0,0,0,1">
+            <Grid ColumnDefinitions="*,Auto">
+                <Grid
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="10">
+                    <!--  Logo  -->
+                    <Image Height="42" Source="/Assets/rv-logo.png" />
+                    <!--  Nombre de la App  -->
+                    <StackPanel
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical"
+                        Spacing="1">
+                        <StackPanel Orientation="Horizontal" Spacing="0">
+                            <!--  Primera palabra  -->
+                            <TextBlock
+                                FontSize="24"
+                                FontWeight="Bold"
+                                Foreground="{StaticResource RvTextPrimaryBrush}"
+                                Text="Rip" />
+
+                            <!--  Segunda palabra  -->
+                            <TextBlock
+                                FontSize="24"
+                                FontWeight="Bold"
+                                Foreground="{StaticResource RvAccentBrush}"
+                                Text="Verify" />
+                        </StackPanel>
+                        <!--  Descripción  -->
+                        <TextBlock
+                            Classes="muted"
+                            FontSize="11"
+                            Text="{Binding Subtitle}" />
+                    </StackPanel>
+
+                </Grid>
+                <StackPanel
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Spacing="6">
+                    <Button
+                        AutomationProperties.Name="{Binding OpenFolderText}"
+                        Classes="nav"
+                        Click="OpenFolder_Click"
+                        ToolTip.Tip="{Binding OpenFolderToolTip}">
+                        <StackPanel Orientation="Horizontal" Spacing="7">
+                            <TextBlock
+                                FontSize="17"
+                                FontWeight="Bold"
+                                Text="+" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="13"
+                                FontWeight="SemiBold"
+                                Text="{Binding OpenFolderText}" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Width="36"
+                        Height="36"
+                        Padding="0"
+                        AutomationProperties.Name="{Binding OpenSettingsText}"
+                        Classes="nav"
+                        Click="OpenSettings_Click"
+                        Content="⚙"
+                        FontSize="17"
+                        ToolTip.Tip="{Binding SettingsToolTip}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!--  Dashboard  -->
+        <Grid
+            Grid.Row="1"
+            Margin="28,24"
+            IsVisible="{Binding !IsDetailVisible}"
+            RowDefinitions="Auto,Auto,*">
+            <!--  Drop zone  -->
+            <Border
+                Name="DropArea"
+                Grid.Row="0"
+                Height="160"
+                Classes="dropzone"
+                Cursor="Hand"
+                DragDrop.AllowDrop="True"
+                PointerPressed="DropArea_PointerPressed"
+                ToolTip.Tip="{Binding OpenFolderToolTip}">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Spacing="6">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="34"
+                        Foreground="#89B4FA"
+                        Text="↓" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        Foreground="#CDD6F4"
+                        Text="{Binding DropZoneTitle}" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Classes="muted"
+                        FontSize="12"
+                        Text="{Binding DropZoneSubtitle}" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="12"
+                        Foreground="#89B4FA"
+                        Text="{Binding ItemsReceivedText}" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Grid.Row="1"
+                Margin="0,12,0,0"
+                Padding="12,10"
+                BorderBrush="#E67E22"
+                Classes="card"
+                IsVisible="{Binding IsDegradedMode}">
+                <TextBlock
+                    Foreground="#E67E22"
+                    Text="{Binding DegradedModeText}"
+                    TextWrapping="Wrap" />
+            </Border>
+
+            <!--  Queue workspace  -->
+            <Border
+                Grid.Row="2"
+                Margin="0,20,0,0"
+                Classes="queueWorkspace">
+                <Grid RowDefinitions="Auto,*,Auto">
+                    <Border
+                        Grid.Row="0"
+                        Padding="18,14"
+                        BorderBrush="#313244"
+                        BorderThickness="0,0,0,1">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal"
+                                Spacing="10">
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    FontWeight="SemiBold"
+                                    Foreground="#CDD6F4"
+                                    Text="{Binding QueueTitle}" />
+                                <Border
+                                    Padding="8,2"
+                                    Background="#313244"
+                                    CornerRadius="10"
+                                    IsVisible="{Binding HasItems}">
+                                    <TextBlock
+                                        FontSize="11"
+                                        FontWeight="SemiBold"
+                                        Foreground="#BAC2DE"
+                                        Text="{Binding Items.Count}" />
+                                </Border>
+                            </StackPanel>
+                            <Button
+                                Grid.Column="1"
+                                Padding="10,6"
+                                AutomationProperties.Name="{Binding ClearQueueText}"
+                                Classes="queueAction"
+                                Command="{Binding ClearQueueCommand}"
+                                IsVisible="{Binding HasItems}"
+                                ToolTip.Tip="{Binding ClearQueueToolTip}">
+                                <TextBlock
+                                    FontSize="12"
+                                    FontWeight="SemiBold"
+                                    Text="{Binding ClearQueueText}" />
+                            </Button>
+                        </Grid>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <TextBlock
+                            MaxWidth="420"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Classes="muted"
+                            IsVisible="{Binding !HasItems}"
+                            Text="{Binding QueueEmptyText}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+
+                        <ListBox
+                            Name="BatchList"
+                            AutomationProperties.Name="{Binding BatchListAutomationName}"
+                            Padding="14,12,14,12"
+                            Background="Transparent"
+                            IsVisible="{Binding HasItems}"
+                            BorderThickness="0"
+                            ItemsSource="{Binding Items}"
+                            KeyDown="BatchList_KeyDown"
+                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate x:DataType="vm:BatchItemViewModel">
+                                    <Border Classes="queueRow">
+                                        <Grid ColumnDefinitions="40,*,Auto" ColumnSpacing="12">
+                                            <controls:BatchStatusIndicator
+                                                Grid.Column="0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                AutomationProperties.Name="{Binding StateText}"
+                                                CompletedBrush="{Binding Result.Status, Converter={StaticResource StatusToBrushConverter}}"
+                                                IsCancelling="{Binding IsCancelling}"
+                                                State="{Binding State}" />
+                                            <StackPanel
+                                                Grid.Column="1"
+                                                VerticalAlignment="Center"
+                                                Spacing="4">
+                                                <TextBlock
+                                                    FontSize="15"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="#CDD6F4"
+                                                    Text="{Binding DisplayName}"
+                                                    TextTrimming="CharacterEllipsis" />
+                                                <Grid HorizontalAlignment="Left">
+                                                    <Border
+                                                        Background="{Binding Result.Status, Converter={StaticResource StatusToBrushConverter}}"
+                                                        CornerRadius="8"
+                                                        IsVisible="{Binding HasResult}"
+                                                        Opacity="0.14" />
+                                                    <TextBlock
+                                                        Margin="9,4"
+                                                        MaxWidth="240"
+                                                        FontSize="12"
+                                                        FontWeight="SemiBold"
+                                                        Foreground="{Binding Result.Status, Converter={StaticResource StatusToBrushConverter}}"
+                                                        IsVisible="{Binding HasResult}"
+                                                        Text="{Binding ResultStatusText}"
+                                                        TextTrimming="CharacterEllipsis" />
+                                                    <TextBlock
+                                                        FontSize="12"
+                                                        Foreground="#9399B2"
+                                                        IsVisible="{Binding !HasResult}"
+                                                        Text="{Binding StateText}"
+                                                        TextTrimming="CharacterEllipsis" />
+                                                </Grid>
+                                                <TextBlock
+                                                    Margin="0,2,0,0"
+                                                    FontSize="12"
+                                                    Foreground="#FF5C4D"
+                                                    IsVisible="{Binding HasError}"
+                                                    Text="{Binding ErrorMessage}"
+                                                    TextWrapping="Wrap" />
+                                            </StackPanel>
+                                            <StackPanel
+                                                Grid.Column="2"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal"
+                                                Spacing="6">
+                                                <Button
+                                                    Padding="10,6"
+                                                    VerticalAlignment="Center"
+                                                    AutomationProperties.Name="{Binding DetailsText}"
+                                                    Classes="ghost"
+                                                    Command="{Binding OpenDetailsCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    Content="{Binding DetailsText}"
+                                                    IsVisible="{Binding CanOpenDetails}"
+                                                    ToolTip.Tip="{Binding DetailsToolTip}" />
+                                                <Button
+                                                    Width="32"
+                                                    Height="32"
+                                                    Padding="0"
+                                                    VerticalAlignment="Center"
+                                                    AutomationProperties.Name="{Binding RemoveText}"
+                                                    Classes="iconDanger"
+                                                    Command="{Binding RemoveCommand}"
+                                                    CommandParameter="{Binding}"
+                                                    Content="✕"
+                                                    IsEnabled="{Binding IsRemovable}"
+                                                    ToolTip.Tip="{Binding RemoveToolTip}" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+
+                    <!--  Workspace footer  -->
+                    <Border
+                        Grid.Row="2"
+                        Padding="18,14"
+                        BorderBrush="#313244"
+                        BorderThickness="0,1,0,0">
+                        <Grid RowDefinitions="Auto,Auto">
+                            <Grid Grid.Row="0" ColumnDefinitions="Auto,Auto,*,Auto">
+                                <Button
+                                    Grid.Column="0"
+                                    AutomationProperties.Name="{Binding StartBatchText}"
+                                    Classes="accent"
+                                    Command="{Binding StartBatchCommand}"
+                                    Content="{Binding StartBatchText}"
+                                    ToolTip.Tip="{Binding StartBatchToolTip}" />
+                                <Button
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    AutomationProperties.Name="{Binding CancelBatchText}"
+                                    Classes="ghost"
+                                    Command="{Binding CancelBatchCommand}"
+                                    Content="{Binding CancelBatchText}"
+                                    IsEnabled="{Binding IsBatchRunning}"
+                                    ToolTip.Tip="{Binding CancelBatchToolTip}" />
+                                <TextBlock
+                                    Grid.Column="2"
+                                    Margin="18,0,0,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Foreground="#A6E3A1"
+                                    Text="{Binding StatusText}"
+                                    TextTrimming="CharacterEllipsis" />
+                            </Grid>
+                            <ProgressBar
+                                Grid.Row="1"
+                                Height="6"
+                                Margin="0,14,0,0"
+                                Background="#313244"
+                                Foreground="#89B4FA"
+                                IsVisible="{Binding IsBatchRunning}"
+                                Maximum="{Binding BatchTotal}"
+                                Value="{Binding BatchCompleted}" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!--  Album Detail  -->
+        <ContentControl
+            Grid.RowSpan="2"
+            Background="#11111B"
+            Content="{Binding Detail}"
+            IsVisible="{Binding IsDetailVisible}">
+            <ContentControl.DataTemplates>
+                <DataTemplate DataType="{x:Type vm:AlbumDetailViewModel}">
+                    <views:AlbumDetailView />
+                </DataTemplate>
+            </ContentControl.DataTemplates>
+        </ContentControl>
+    </Grid>
+</Window>

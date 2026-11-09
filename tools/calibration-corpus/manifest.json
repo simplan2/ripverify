@@ -1,0 +1,13 @@
+{
+  "OriginCategories": [
+    "cd",
+    "cd-natural-rolloff",
+    "streaming",
+    "vinyl",
+    "transcode",
+    "unknown"
+  ],
+  "Entries": [],
+  "CalibratedBrickwallThreshold": null,
+  "LastCalibratedAt": null
+}

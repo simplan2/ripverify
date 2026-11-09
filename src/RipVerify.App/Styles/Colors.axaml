@@ -1,0 +1,38 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--  Add Resources Here  -->
+    <SolidColorBrush x:Key="RvBgBrush" Color="#11111B" />
+    <SolidColorBrush x:Key="StatusVerifiedBrush" Color="#2ECC71" />
+    <SolidColorBrush x:Key="StatusAuthenticWithLogBrush" Color="#27AE60" />
+    <SolidColorBrush x:Key="StatusStreamingBrush" Color="#F1C40F" />
+    <SolidColorBrush x:Key="StatusUndeterminedBrush" Color="#E67E22" />
+    <SolidColorBrush x:Key="StatusFakeBrush" Color="#FF5C4D" />
+    <SolidColorBrush x:Key="StatusUnprocessableBrush" Color="#95A5A6" />
+    <SolidColorBrush x:Key="AccentFocusBrush" Color="#89B4FA" />
+    <SolidColorBrush x:Key="RvAccentBrush" Color="#89B4FA" />
+    <SolidColorBrush x:Key="RvAccentHoverBrush" Color="#A5C8FF" />
+    <SolidColorBrush x:Key="RvAccentPressedBrush" Color="#6C9EF0" />
+    <SolidColorBrush x:Key="RvAccentTextBrush" Color="#11111B" />
+    <SolidColorBrush x:Key="RvAccentDisabledTextBrush" Color="#A6ADC8" />
+    <SolidColorBrush x:Key="RvSurfaceBrush" Color="#181825" />
+    <SolidColorBrush x:Key="RvCardBrush" Color="#1E1E2E" />
+    <SolidColorBrush x:Key="RvCardHoverBrush" Color="#252538" />
+    <SolidColorBrush x:Key="RvBorderBrush" Color="#313244" />
+    <SolidColorBrush x:Key="RvBorderStrongBrush" Color="#45475A" />
+    <SolidColorBrush x:Key="RvControlBrush" Color="#313244" />
+    <SolidColorBrush x:Key="RvControlHoverBrush" Color="#45475A" />
+    <SolidColorBrush x:Key="RvControlPressedBrush" Color="#585B70" />
+    <SolidColorBrush x:Key="RvDangerBrush" Color="#FF5C4D" />
+    <SolidColorBrush x:Key="RvInputBrush" Color="#11111B" />
+
+    <SolidColorBrush x:Key="RvRingBorderBrush" Color="#3E425C" />
+    <SolidColorBrush x:Key="RvRingSniperBrush" Color="#75A8FA" />
+
+    <!--  ==================== TEXT ====================  -->
+    <SolidColorBrush x:Key="RvTextPrimaryBrush" Color="#CDD6F4" />
+    <SolidColorBrush x:Key="RvTextMutedBrush" Color="#9399B2" />
+    <SolidColorBrush x:Key="RvFieldLabelBrush" Color="#CDD6F4" />
+
+
+</ResourceDictionary>

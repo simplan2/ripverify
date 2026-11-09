@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RipVerify.App.ViewModels"
+        x:Class="RipVerify.App.Views.FirstRunWizardView"
+        x:DataType="vm:FirstRunWizardViewModel"
+        Title="{Binding Title}"
+        Width="700" Height="500"
+        Background="#1E1E2E">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="20" Foreground="#89B4FA"/>
+        <Carousel Grid.Row="1" SelectedIndex="{Binding CurrentStep}">
+            <StackPanel Spacing="10">
+                <TextBlock Text="{Binding WelcomeText}" Foreground="#CDD6F4" TextWrapping="Wrap"/>
+            </StackPanel>
+            <StackPanel Spacing="10">
+                <TextBlock Text="{Binding DependenciesText}" FontSize="16" Foreground="#CDD6F4"/>
+                <TextBlock Text="{Binding CueToolsNotFoundText}" Foreground="#F9E2AF" IsVisible="{Binding !CueToolsFound}"/>
+                <TextBlock Text="{Binding DownloadCueToolsText}" Foreground="#89B4FA" IsVisible="{Binding !CueToolsFound}"/>
+                <CheckBox Content="{Binding AcceptTermsText}" IsChecked="{Binding AcceptTerms}" IsVisible="{Binding !CueToolsFound}"/>
+                <CheckBox Content="{Binding ContinueDegradedText}" IsChecked="{Binding ContinueDegraded}" IsVisible="{Binding !CueToolsFound}"/>
+                <TextBlock Text="{Binding FfmpegInfoText}" Foreground="#CDD6F4"/>
+                <TextBlock Text="{Binding FfmpegFound}" Foreground="#A6E3A1"/>
+            </StackPanel>
+            <StackPanel Spacing="10">
+                <TextBlock Text="{Binding LanguageText}" Foreground="#CDD6F4"/>
+                <ComboBox SelectedItem="{Binding SelectedLanguage}">
+                    <ComboBoxItem Content="{Binding EnglishText}" Tag="en"/>
+                    <ComboBoxItem Content="{Binding SpanishText}" Tag="es"/>
+                </ComboBox>
+            </StackPanel>
+        </Carousel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+            <Button Content="{Binding BackText}" Command="{Binding BackCommand}" IsVisible="{Binding CurrentStep}"
+                    ToolTip.Tip="{Binding BackText}" AutomationProperties.Name="{Binding BackText}"/>
+            <Button Content="{Binding NextText}" Command="{Binding NextCommand}" IsVisible="{Binding CurrentStep, Converter={x:Static BoolConverters.Not}}"
+                    ToolTip.Tip="{Binding NextText}" AutomationProperties.Name="{Binding NextText}"/>
+            <Button Content="{Binding NextText}" Command="{Binding NextCommand}" IsVisible="{Binding CurrentStep, Converter={x:Static ObjectConverters.Equal}, ConverterParameter=1}"
+                    ToolTip.Tip="{Binding NextText}" AutomationProperties.Name="{Binding NextText}"/>
+            <Button Content="{Binding FinishText}" Command="{Binding FinishCommand}"
+                    ToolTip.Tip="{Binding FinishText}" AutomationProperties.Name="{Binding FinishText}"/>
+        </StackPanel>
+    </Grid>
+</Window>

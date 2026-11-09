@@ -1,0 +1,661 @@
+<UserControl
+    x:Class="RipVerify.App.Views.AlbumDetailView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:RipVerify.App.ViewModels"
+    d:DesignHeight="760"
+    d:DesignWidth="900"
+    x:DataType="vm:AlbumDetailViewModel"
+    mc:Ignorable="d">
+    <Grid Margin="24" RowDefinitions="Auto,*,Auto">
+        <!--  Status banner  -->
+        <Border
+            Grid.Row="0"
+            Margin="0,0,0,20"
+            Padding="28,22"
+            Background="{Binding Result.Status, Converter={StaticResource StatusToBrushConverter}}"
+            CornerRadius="16">
+            <StackPanel HorizontalAlignment="Center" Spacing="4">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="56"
+                    FontWeight="Bold"
+                    Foreground="#11111B"
+                    Text="{Binding StatusIconText}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="28"
+                    FontWeight="Bold"
+                    Foreground="#11111B"
+                    Text="{Binding StatusText}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    MaxWidth="620"
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    Foreground="#1E1E2E"
+                    Opacity="0.85"
+                    Text="{Binding StatusDescriptionText}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+
+        <!--  Friendly cards  -->
+        <ScrollViewer Grid.Row="1" Margin="0,0,0,10">
+            <StackPanel Spacing="16">
+                <!--  CUETools / databases  -->
+                <Border
+                    Padding="18"
+                    BorderBrush="#89B4FA"
+                    Classes="card">
+                    <StackPanel Spacing="10">
+                      <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Viewbox Width="18" Height="18" Stretch="Uniform">
+                          <Path
+                              Data="M448,205.8c-14.8,9.8-31.8,17.7-49.5,24-47,16.8-108.7,26.2-174.5,26.2s-127.6-9.5-174.5-26.2c-17.6-6.3-34.7-14.2-49.5-24v82.2c0,44.2,100.3,80,224,80s224-35.8,224-80v-82.2ZM448,128v-48C448,35.8,347.7,0,224,0S0,35.8,0,80v48c0,44.2,100.3,80,224,80s224-35.8,224-80ZM398.5,389.8c-46.9,16.7-108.6,26.2-174.5,26.2s-127.6-9.5-174.5-26.2c-17.6-6.3-34.7-14.2-49.5-24v66.2c0,44.2,100.3,80,224,80s224-35.8,224-80v-66.2c-14.8,9.8-31.8,17.7-49.5,24Z"
+                              Fill="#89B4FA" />
+                        </Viewbox>
+
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Foreground="#89B4FA"
+                            Text="{Binding CueToolsCardTitle}" />
+                      </StackPanel>
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="{Binding Result.AccurateRipStatus, Converter={StaticResource DatabaseStatusToBrushConverter}}"
+                            Text="{Binding AccurateRipText}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="{Binding Result.CtdbStatus, Converter={StaticResource DatabaseStatusToBrushConverter}}"
+                            Text="{Binding CtdbStatusText}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="#CDD6F4"
+                            Text="{Binding CueOriginText}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            Margin="20,0,0,0"
+                            FontSize="13"
+                            Foreground="#F9E2AF"
+                            IsVisible="{Binding HasCueOriginWarning}"
+                            Text="{Binding CueOriginWarningText}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="#2ECC71"
+                            IsVisible="{Binding HasDbPowerampVerified}"
+                            Text="{Binding DbPowerampText}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="#CDD6F4"
+                            Text="{Binding ConfidenceText}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="#A6E3A1"
+                            IsVisible="{Binding HasLog}"
+                            Text="{Binding LogStatusText}"
+                            TextWrapping="Wrap" />
+                        <ItemsControl
+                            IsVisible="{Binding HasLogWarnings}"
+                            ItemsSource="{Binding LogWarnings}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        Margin="0,2,0,0"
+                                        FontSize="13"
+                                        Foreground="#F9E2AF"
+                                        Text="{Binding}"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <ItemsControl
+                            IsVisible="{Binding HasCriticalParserWarnings}"
+                            ItemsSource="{Binding CriticalParserWarnings}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel
+                                        Margin="0,2,0,0"
+                                        Orientation="Horizontal"
+                                        Spacing="8">
+                                        <TextBlock
+                                            VerticalAlignment="Center"
+                                            FontSize="13"
+                                            Foreground="#F9E2AF"
+                                            Text="⚠" />
+                                        <TextBlock
+                                            VerticalAlignment="Center"
+                                            FontSize="13"
+                                            Foreground="#F9E2AF"
+                                            Text="{Binding}"
+                                            TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+
+                <!--  Spectrum  -->
+                <Border
+                    Padding="18"
+                    BorderBrush="#A6E3A1"
+                    Classes="card">
+                    <StackPanel Spacing="10">
+                        <StackPanel Orientation="Horizontal" Spacing="10">                        
+                          <Viewbox Width="18" Height="18" Stretch="Uniform">
+                            <Path
+                                Data="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-256zm-32 128H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32zM288 96a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zm-128 160a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zm256 160a32 32 0 1 1 -64 0 32 32 0 1 1 64 0z"
+                                Fill="#A6E3A1" />
+                          </Viewbox>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#A6E3A1"
+                                Text="{Binding SpectrumCardTitle}" />
+                        </StackPanel>
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="#CDD6F4"
+                            Text="{Binding NyquistCutoffText}"
+                            TextWrapping="Wrap" />
+
+                        <Grid
+                            ColumnDefinitions="Auto,*"
+                            IsVisible="{Binding IsMasteringFilterDetected}">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="#2ECC71"
+                                Text="V" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Foreground="#A6E3A1"
+                                Text="{Binding MasteringFilterText}"
+                                TextWrapping="Wrap" />
+                        </Grid>
+
+                        <StackPanel
+                            IsVisible="{Binding IsSpectrumClean}"
+                            Orientation="Horizontal"
+                            Spacing="10">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="#2ECC71"
+                                Text="✓" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="#CDD6F4"
+                                Text="{Binding FakeLosslessLabelText}" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Foreground="#A6E3A1"
+                                Text="{Binding SpectrumVerdictText}" />
+                        </StackPanel>
+
+                        <StackPanel
+                            IsVisible="{Binding IsSpectrumSuspected}"
+                            Orientation="Horizontal"
+                            Spacing="10">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="30"
+                                FontWeight="Bold"
+                                Foreground="#FF5C4D"
+                                Text="✕" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="#CDD6F4"
+                                Text="{Binding FakeLosslessLabelText}" />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Foreground="#FF5C4D"
+                                Text="{Binding SpectrumVerdictText}" />
+                        </StackPanel>
+
+                        <Border
+                            Padding="10,12"
+                            Background="#181825"
+                            CornerRadius="8"
+                            IsVisible="{Binding IsSpectrumAvailable}"
+                            ToolTip.Tip="{Binding SpectrumChartTitle}">
+                            <Grid RowDefinitions="140,Auto">
+                                <Border
+                                    Margin="0,0,0,6"
+                                    Background="#11111B"
+                                    CornerRadius="6">
+                                    <Viewbox
+                                        Margin="8"
+                                        Stretch="Fill">
+                                        <Canvas Width="100" Height="100">
+                                            <Path
+                                                Data="{Binding SpectrumAreaData}"
+                                                Fill="{Binding SpectrumChartBrush}"
+                                                Opacity="0.32" />
+                                            <Path
+                                                Data="{Binding SpectrumLineData}"
+                                                Stroke="{Binding SpectrumChartBrush}"
+                                                StrokeThickness="1.6" />
+                                        </Canvas>
+                                    </Viewbox>
+                                </Border>
+                                <Grid
+                                    Grid.Row="1"
+                                    ColumnDefinitions="*,*">
+                                    <TextBlock
+                                        Grid.Column="0"
+                                        HorizontalAlignment="Left"
+                                        FontSize="11"
+                                        Foreground="#9399B2"
+                                        Text="{Binding SpectrumStartLabel}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Right"
+                                        FontSize="11"
+                                        Foreground="#9399B2"
+                                        Text="{Binding SpectrumEndLabel}" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+                <!--  Origin  -->
+                <Border
+                    Padding="18"
+                    BorderBrush="#F9E2AF"
+                    Classes="card">
+                    <StackPanel Spacing="10">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <!--<TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="22"
+                                Foreground="#F9E2AF"
+                                Text="☁" />-->
+                          <Viewbox Width="18" Height="18" Stretch="Uniform">
+                            <Path
+                                Data="M486.82,116.51h0c-8.83,0-17.47.74-25.89,2.11C439.94,49.98,374.88,0,297.89,0,203.84,0,127.65,74.5,127.65,166.37c0,8.26.64,16.32,1.82,24.19-4.54-.51-9.09-.86-13.73-.86C51.81,189.7,0,240.38,0,302.82s51.81,113.18,115.74,113.18h371.07c84.58,0,153.18-67.07,153.18-149.76s-68.61-149.73-153.18-149.73ZM379.12,166.93h-56.93v142.32c0,15.66-5.55,29.03-16.65,40.13-11.1,11.1-24.53,16.7-40.28,16.79s-29.13-5.46-40.13-16.65c-11.2-11.2-16.79-24.62-16.79-40.28s5.6-29.08,16.79-40.28c11.2-11.2,24.57-16.75,40.13-16.65,5.5,0,10.53.66,15.09,1.99s9.01,3.27,13.38,5.84V110h85.39v56.93Z"
+                                Fill="#F9E2AF" />
+                          </Viewbox>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#F9E2AF"
+                                Text="{Binding OriginCardTitle}" />
+                        </StackPanel>
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Foreground="#F9E2AF"
+                            IsVisible="{Binding HasPlatformIsrc}"
+                            Text="{Binding PlatformIsrcText}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Foreground="#F9E2AF"
+                            Text="{Binding OriginEvidenceText}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="#9399B2"
+                            Text="{Binding OriginMetadataNote}"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="#CDD6F4"
+                            IsVisible="{Binding HasDistributor}"
+                            Text="{Binding DistributorText}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+
+                <!--  Metadata warning  -->
+                <Border
+                    Padding="14"
+                    Background="#2B2415"
+                    BorderBrush="#F9E2AF"
+                    BorderThickness="1"
+                    Classes="card"
+                    IsVisible="{Binding HasMetadataWarning}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Border
+                            Width="28"
+                            Height="28"
+                            VerticalAlignment="Top"
+                            Background="#3A2F1F"
+                            CornerRadius="7">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                FontWeight="Bold"
+                                Foreground="#F9E2AF"
+                                Text="⚠" />
+                        </Border>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="13"
+                            Foreground="#F9E2AF"
+                            Text="{Binding MetadataWarningText}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+
+                <!--  CUE warnings  -->
+                <Border
+                    Padding="14"
+                    Background="#2B2415"
+                    BorderBrush="#F9E2AF"
+                    BorderThickness="1"
+                    Classes="card"
+                    IsVisible="{Binding HasCueWarnings}">
+                    <StackPanel Spacing="6">
+                        <TextBlock
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Foreground="#F9E2AF"
+                            Text="⚠"
+                            TextWrapping="Wrap" />
+                        <ItemsControl ItemsSource="{Binding CueWarnings}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        Margin="0,1,0,0"
+                                        FontSize="12"
+                                        Foreground="#F9E2AF"
+                                        Text="{Binding}"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+
+                <!--  Tracks  -->
+                <Border
+                    Padding="18"
+                    BorderBrush="#CBA6F7"
+                    Classes="card"
+                    IsVisible="{Binding HasTracks}">
+                    <StackPanel Spacing="10">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            
+                          <Viewbox Width="18" Height="18" Stretch="Uniform">
+                            <Path
+                                Data="M480,0h32v368c0,44.18-50.14,80-112,80s-112-35.82-112-80,50.14-80,112-80c31.34,0,59.67,9.2,80,24.02v-184.02l-256,56.89v247.11c0,44.18-50.14,80-112,80S0,476.18,0,432s50.14-80,112-80c31.34,0,59.67,9.2,80,24.02V64L480,0h0Z"
+                                Fill="#CBA6F7" />
+                          </Viewbox>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#CBA6F7"
+                                Text="{Binding TracksCardTitle}" />
+                        </StackPanel>
+                        <Grid
+                            Margin="10,0,10,0"
+                            ColumnDefinitions="36,*,80,100,130">
+                            <TextBlock
+                                Grid.Column="0"
+                                FontSize="11"
+                                FontWeight="SemiBold"
+                                Foreground="#9399B2"
+                                Text="{Binding TrackNumberColumnText}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                FontSize="11"
+                                FontWeight="SemiBold"
+                                Foreground="#9399B2"
+                                Text="{Binding TrackTitleColumnText}" />
+                            <TextBlock
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                FontSize="11"
+                                FontWeight="SemiBold"
+                                Foreground="#9399B2"
+                                Text="{Binding TrackDurationColumnText}" />
+                            <TextBlock
+                                Grid.Column="3"
+                                HorizontalAlignment="Right"
+                                FontSize="11"
+                                FontWeight="SemiBold"
+                                Foreground="#9399B2"
+                                Text="{Binding TrackSpectrumColumnText}" />
+                            <TextBlock
+                                Grid.Column="4"
+                                Margin="12,0,0,0"
+                                FontSize="11"
+                                FontWeight="SemiBold"
+                                Foreground="#9399B2"
+                                Text="{Binding TrackStatusColumnText}" />
+                        </Grid>
+                        <ItemsControl ItemsSource="{Binding TrackRows}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:TrackRowViewModel">
+                                    <Border
+                                        Margin="0,0,0,4"
+                                        Padding="10,7"
+                                        Background="#181825"
+                                        CornerRadius="8">
+                                        <Grid ColumnDefinitions="36,*,80,100,130">
+                                            <TextBlock
+                                                Grid.Column="0"
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="#9399B2"
+                                                Text="{Binding NumberText}" />
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                VerticalAlignment="Center"
+                                                FontSize="13"
+                                                Foreground="#CDD6F4"
+                                                Text="{Binding Title}"
+                                                TextTrimming="CharacterEllipsis" />
+                                            <TextBlock
+                                                Grid.Column="2"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="#9399B2"
+                                                Text="{Binding DurationText}" />
+                                            <TextBlock
+                                                Grid.Column="3"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="#CDD6F4"
+                                                Text="{Binding SpectrumText}" />
+                                            <TextBlock
+                                                Grid.Column="4"
+                                                Margin="12,0,0,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                FontWeight="SemiBold"
+                                                Foreground="{Binding StatusBrush}"
+                                                Text="{Binding StatusText}"
+                                                TextTrimming="CharacterEllipsis" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+
+                <!--  Technical details (collapsed by default)  -->
+                <Expander HorizontalAlignment="Stretch" IsExpanded="False">
+                    <Expander.Header>
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Foreground="#CDD6F4"
+                            Text="{Binding DiagnosticsTitle}" />
+                    </Expander.Header>
+                    <Border
+                        Margin="0,8,0,0"
+                        Padding="14"
+                        Background="#1E1E2E"
+                        BorderBrush="#45475A"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <StackPanel Spacing="8">
+                            <ItemsControl ItemsSource="{Binding Diagnostics}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            Margin="0,2,0,0"
+                                            FontSize="12"
+                                            Foreground="#9399B2"
+                                            Text="{Binding}"
+                                            TextWrapping="Wrap" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <TextBlock
+                                FontSize="13"
+                                FontWeight="SemiBold"
+                                Foreground="#F9E2AF"
+                                IsVisible="{Binding HasParserWarnings}"
+                                Text="{Binding ParserWarningsTitle}" />
+                            <ItemsControl
+                                IsVisible="{Binding HasParserWarnings}"
+                                ItemsSource="{Binding ParserWarnings}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            Margin="0,2,0,0"
+                                            FontSize="12"
+                                            Foreground="#F9E2AF"
+                                            Text="{Binding}"
+                                            TextWrapping="Wrap" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="#9399B2"
+                                IsVisible="{Binding HasAlbumPath}"
+                                Text="{Binding AlbumPathText}"
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="#9399B2"
+                                IsVisible="{Binding HasCuePath}"
+                                Text="{Binding CuePathText}"
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="#9399B2"
+                                IsVisible="{Binding HasWorstTrack}"
+                                Text="{Binding WorstTrackPathText}"
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="#9399B2"
+                                Text="{Binding DriveOffsetText}" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="#9399B2"
+                                Text="{Binding CtdbParityText}" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="#9399B2"
+                                IsVisible="{Binding HasDistributor}"
+                                Text="{Binding DistributorText}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Border>
+                </Expander>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!--  Footer  -->
+        <Border
+            Grid.Row="2"
+            Margin="0,20,0,0"
+            Padding="0,16,0,0"
+            BorderBrush="#313244"
+            BorderThickness="0,1,0,0">
+            <StackPanel Spacing="10">
+                <TextBlock
+                    Foreground="#A6E3A1"
+                    IsVisible="{Binding IsNotificationVisible}"
+                    Text="{Binding NotificationText}"
+                    TextWrapping="Wrap" />
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="12">
+                        <CheckBox
+                            VerticalAlignment="Center"
+                            AutomationProperties.Name="{Binding ForceEnglishText}"
+                            Content="{Binding ForceEnglishText}"
+                            IsChecked="{Binding ForceEnglish}"
+                            ToolTip.Tip="{Binding ForceEnglishToolTip}" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="#F9E2AF"
+                            IsVisible="{Binding IsBusy}"
+                            Text="{Binding BusyText}" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                        <Button
+                            AutomationProperties.Name="{Binding CloseText}"
+                            Classes="ghost"
+                            Command="{Binding CloseCommand}"
+                            Content="{Binding CloseText}"
+                            ToolTip.Tip="{Binding CloseToolTip}" />
+                        <Button
+                            AutomationProperties.Name="{Binding ExportMarkdownText}"
+                            Classes="secondary"
+                            Command="{Binding ExportMarkdownCommand}"
+                            Content="{Binding ExportMarkdownText}"
+                            IsEnabled="{Binding !IsBusy}"
+                            ToolTip.Tip="{Binding ExportMarkdownToolTip}" />
+                        <Button
+                            AutomationProperties.Name="{Binding VerifyAgainText}"
+                            Classes="accent"
+                            Command="{Binding VerifyAgainCommand}"
+                            Content="{Binding VerifyAgainText}"
+                            IsEnabled="{Binding !IsBusy}"
+                            ToolTip.Tip="{Binding VerifyAgainToolTip}" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

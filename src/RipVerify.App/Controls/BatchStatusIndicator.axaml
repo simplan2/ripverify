@@ -1,0 +1,118 @@
+<UserControl
+    x:Class="RipVerify.App.Controls.BatchStatusIndicator"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Width="32"
+    Height="32"
+    IsHitTestVisible="False">
+    <Grid
+        Width="32"
+        Height="32"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <Ellipse
+            Name="StatusRing"
+            Width="28"
+            Height="28"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Stroke="{DynamicResource RvRingBorderBrush}"
+            StrokeThickness="2" />
+
+        <!--  Spinner limpio con rotación directa al centro  -->
+        <Grid
+            x:Name="SpinnerHost"
+            Width="32"
+            Height="32"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            RenderTransformOrigin="0.1,0.1">
+            <Grid.RenderTransform>
+                <RotateTransform Angle="0" />
+            </Grid.RenderTransform>
+
+
+            <!--<Viewbox
+                Width="27.8"
+                Height="27.8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Path
+                    Name="SpinnerStroke"
+                    Data="M 16,2 A 14,14 0 0 1 27.5,9"
+                    Stroke="{DynamicResource RvAccentBrush}"
+                    StrokeLineCap="Round"
+                    StrokeThickness="3" />
+            </Viewbox>-->
+            <Arc
+                Name="SpinnerStroke"
+                Width="27.8"
+                Height="27.8"
+                Margin="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                StartAngle="0"
+                Stroke="{StaticResource RvRingSniperBrush}"
+                StrokeLineCap="Round"
+                StrokeThickness="3"
+                SweepAngle="82" />
+
+        </Grid>
+
+        <Viewbox
+            Width="14"
+            Height="14"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Path
+                Name="CheckIcon"
+                Data="M 8,16 L 14,22 L 24,10"
+                IsVisible="False"
+                Stretch="Uniform"
+                Stroke="{DynamicResource StatusVerifiedBrush}"
+                StrokeJoin="Round"
+                StrokeLineCap="Round"
+                StrokeThickness="2.4" />
+        </Viewbox>
+
+        <Viewbox
+            Width="10"
+            Height="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Path
+                Name="ErrorIcon"
+                Data="M 10,10 L 22,22 M 22,10 L 10,22"
+                IsVisible="False"
+                Stretch="Uniform"
+                Stroke="{DynamicResource RvDangerBrush}"
+                StrokeLineCap="Round"
+                StrokeThickness="2.2" />
+        </Viewbox>
+
+        <Viewbox
+            Width="10"
+            Height="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Path
+                Name="CancelledIcon"
+                Data="M 10,16 L 22,16"
+                IsVisible="False"
+                Stretch="Uniform"
+                Stroke="{DynamicResource RvTextMutedBrush}"
+                StrokeLineCap="Round"
+                StrokeThickness="2.4" />
+        </Viewbox>
+
+
+        <Ellipse
+            Name="PendingIcon"
+            Width="8"
+            Height="8"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Fill="{DynamicResource RvTextMutedBrush}"
+            IsVisible="False" />
+    </Grid>
+</UserControl>
